@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie</title>
+    <style>
+        #kontener{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #przycisk{
+            width: 4vw;
+            height: 3vh;
+        }
+
+        p{
+            width: 60vw;
+            background-color: rgb(167, 194, 70);
+            color: white;
+            font-size: 30px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 1%;
+        }
+    </style>
+</head>
+<body>
+    <div id="kontener">
+        <button id="przycisk">dodaj</button>
+    </div>
+    <script>
+        const button=document.getElementById("przycisk");
+        let count=0;
+        const tekst1=`tekst w akapicie nr `;
+        button.addEventListener('click', function(){;
+            count++;
+            const element=document.createElement('p');
+            const tekst=document.createTextNode(`${tekst1} ${count}`);
+            element.appendChild(tekst);
+
+            const obraz=document.createElement('img');
+            obraz.setAttribute("src", `https://picsum.photos/200/100?random=${count}`);
+            element.appendChild(obraz);
+
+            element.addEventListener('click',function()
+            {
+                this.remove();
+            });
+            document.getElementById("kontener").appendChild(element);
+        });
+    </script>
+</body>
+</html>

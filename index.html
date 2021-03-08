@@ -5,8 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            background-color: burlywood;
+        }
+    </style>
 </head>
 <body>
-    
+    <form>
+    Login <input type="text" id="login">
+    Hasło <input type="password" id="haslo">
+    Zaloguj <input type="button" id="button">
+</form>
+    <script>
+        const login = document.querySelector("#login");
+        const haslo = document.querySelector("#haslo");
+
+        document.querySelector("#button").addEventListener("click", function(){
+            
+            if(login.value!="admin" || haslo.value!="admin"){
+                alert("Błędne dane, spróbuj ponownie");
+            }
+            else{
+                alert("Zaraz zostaniesz przekierowany na witrynę");
+                setTimeout("location.href='todo.html';",5000);
+            }});
+        
+    </script>
 </body>
 </html>
+
