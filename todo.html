@@ -29,26 +29,69 @@
             align-items: center;
             justify-content: space-evenly;
             padding: 1%;
+            font-family:'Courier New', Courier, monospace;
+            
+        }
+        #menu{
+            
+            padding: 2%;
+            border-radius: 10px;
+            background-color: gray;
+            border: 2px gray solid;
+            margin-top: 4%;
+            visibility:hidden;
+            
+        }
+        #guzik{
+            margin-top: 10px;
+            margin-left: 33%;
+            font-size: large;
+            font-family:'Courier New', Courier, monospace;
         }
     </style>
 </head>
 <body>
     <div id="kontener">
-        <button id="przycisk">dodaj</button>
+        <button id="przycisk">Pokaż/Ukryj</button>
+        <div id="menu">
+        <form>
+            <input id="tekst" type="text">
+            <input id="data" type="date">        
+        </form>
+        <br>
+        <button id="guzik">potwierdz</button>
+    </div>
     </div>
     <script>
+        
+        const menu=document.getElementById("menu");
         const button=document.getElementById("przycisk");
         let count=0;
-        const tekst1=`tekst w akapicie nr `;
-        button.addEventListener('click', function(){;
+        const tekst1=document.getElementById("tekst");
+        const data1=document.getElementById("data");
+        button.addEventListener('click', function(){
+            if(menu.style.visibility == "visible"){
+                menu.style.visibility = "hidden";
+            }
+            else{
+            menu.style.visibility = "visible";
+        }
+        });
+        
+        const guzik=document.getElementById("guzik");
+        guzik.addEventListener('click', function(){
             count++;
+
             const element=document.createElement('p');
-            const tekst=document.createTextNode(`${tekst1} ${count}`);
+            const tekst=document.createTextNode(`${tekst1.value}`);
             element.appendChild(tekst);
 
-            const obraz=document.createElement('img');
-            obraz.setAttribute("src", `https://picsum.photos/200/100?random=${count}`);
-            element.appendChild(obraz);
+            
+            const data=document.createElement("p");
+            data.innerText=`${data1.value}`;
+            element.appendChild(data);
+            data.style.width="fit-content";
+            
 
             element.addEventListener('click',function()
             {
@@ -56,6 +99,7 @@
             });
             document.getElementById("kontener").appendChild(element);
         });
+        
     </script>
 </body>
 </html>

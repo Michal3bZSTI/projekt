@@ -8,15 +8,49 @@
     <style>
         body{
             background-color: burlywood;
+            
         }
+        #container{
+            
+            margin-top: 20%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: large;
+            font-family:'Courier New', Courier, monospace;
+            
+            
+        }
+       ol{
+        list-style-type: none;
+        border: 5px gray solid;
+        border-radius: 8%;
+        padding: 40px;
+        background-color: gray;
+        
+       }
+       #button{
+           margin-left: 35%;
+           font-family: 'Courier New', Courier, monospace;
+           font-size: large;
+       }
     </style>
 </head>
 <body>
-    <form>
-    Login <input type="text" id="login">
-    Hasło <input type="password" id="haslo">
-    Zaloguj <input type="button" id="button">
+    <div id="container">
+    <form >
+    <table>
+        <ol>
+    <li>Login <input type="text" id="login"></li>
+    <br>
+    <li>Hasło <input type="password" id="haslo"></li>
+    <br>
+    <br>
+    <li> <input type="button" id="button" value="ZALOGUJ" ></li>
+        </ol>
+</table>
 </form>
+</div>
     <script>
         const login = document.querySelector("#login");
         const haslo = document.querySelector("#haslo");
@@ -28,7 +62,7 @@
             }
             else{
                 alert("Zaraz zostaniesz przekierowany na witrynę");
-                setTimeout("location.href='todo.html';",5000);
+                setTimeout("location.href='todo.html';",2000);
             }});
         
     </script>
